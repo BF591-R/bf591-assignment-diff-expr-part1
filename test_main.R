@@ -76,10 +76,12 @@ describe("DESeq2 results return the same directionality for most significant gen
     dplyr::select(log2FoldChange) %>% 
     pull()
   
-  it("returns ENSMUSG00000026418.17 with a negative log2FC", {
+  it("returns ENSMUSG00000026418.17 with a negative log2FC, if this fails,
+     please check your factor reference levels", {
     expect_true(fc_sign_neg < 0)
   })
-  it("returns ENSMUSG00000002500.16 with a positive log2FC", {
+  it("returns ENSMUSG00000002500.16 with a positive log2FC, if this fails,
+     please check your factor reference levels", {
     expect_true(fc_sign_pos > 0)
   })
 })

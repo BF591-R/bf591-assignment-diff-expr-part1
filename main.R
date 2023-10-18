@@ -10,15 +10,17 @@ library('fgsea')
 #'
 #' @param csv_path (str): path to the file verse_counts.tsv
 #' @param metafile (str): path to the metadata sample_metadata.csv
-#' @param subset(list): list of sample timepoints to use
+#' @param selected_times (list): list of sample timepoints to use
 #' 
 #'   
 #' @return SummarizedExperiment object with subsetted counts matrix
-#'   and sample data
+#'   and sample data. Ensure that the timepoints column used as input 
+#'   to the model design has 'vP0' set as the reference factor level. Your 
+#'   colData dataframe should have columns named samplename and timepoint.
 #' @export
 #'
 #' @examples se <- make_se('verse_counts.tsv', 'sample_metadata.csv', c('vP0', 'vAd'))
-make_se <- function(counts_csv, metafile_csv, subset) {
+make_se <- function(counts_csv, metafile_csv, selected_times) {
     return(NULL)
 }
 

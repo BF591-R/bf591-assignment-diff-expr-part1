@@ -25,11 +25,17 @@ each sample. These files are named 'verse_counts.tsv' and 'sample_metadata.csv',
 respectively. Define a function that reads from these two files to construct a
 counts matrix and matching sample dataframe containing only samples belonging to
 the vP0 and vAd timepoints. This should correspond to a total of 4 samples
-(vP0_1, vP0_2, vAd_1, vAd_2). Store this counts matrix and the
-sample dataframe in a SummarizedExperiments object. Ensure that the name of your
-counts matrix stored as an assay in the SummarizedExperiment object is `counts`.
-Also check that the order of your samples in your colData is the same as they 
-are ordered in your counts matrix. 
+(vP0_1, vP0_2, vAd_1, vAd_2). Store this counts matrix and the sample dataframe
+in a SummarizedExperiments object. Ensure that the name of your counts matrix
+stored as an assay in the SummarizedExperiment object is `counts`.
+
+Also check that the order of your samples in your colData is the same as they
+are ordered in your counts matrix. Before storing your sample dataframe as
+colData, ensure you set the factor levels so that vP0 is the reference level for
+the column that will be used as input to the design matrix, in our case,
+`timepoint`. By default,the first reference level will be considered the
+reference. Your colData should have columns named `samplename` and `timepoint` as
+seen in the reference report.
 
 ```{r, warning=FALSE, message=FALSE, echo=FALSE}
 #Read in verse_counts.tsv and sample_metadata.csv and subset to the listed samples
