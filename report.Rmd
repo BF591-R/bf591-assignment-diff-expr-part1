@@ -4,8 +4,11 @@ output: html_document
 ---
 
 
-For more detailed instructions, please read the assignment page in the course textbook. 
-
+For more detailed instructions, please read the assignment page in the course
+textbook. Please note that for this assignment, many of the next steps depend on
+the previous working and for this reason, some of the tests are also dependent
+on the previous function working correctly. Run your tests one at a time to
+start, and check that each step is working as expected before moving on.
 
 Use this block to source your `main.R`.
 
@@ -22,9 +25,11 @@ each sample. These files are named 'verse_counts.tsv' and 'sample_metadata.csv',
 respectively. Define a function that reads from these two files to construct a
 counts matrix and matching sample dataframe containing only samples belonging to
 the vP0 and vAd timepoints. This should correspond to a total of 4 samples
-(vP0_1, vP0_2, vAd_1, 'vAd_2). Store this counts matrix and the sample dataframe
-in a SummarizedExperiments object. Ensure that the name of your counts matrix
-stored as an assay in the SummarizedExperiment object is `counts`.
+(vP0_1, vP0_2, vAd_1, vAd_2). Store this counts matrix and the
+sample dataframe in a SummarizedExperiments object. Ensure that the name of your
+counts matrix stored as an assay in the SummarizedExperiment object is `counts`.
+Also check that the order of your samples in your colData is the same as they 
+are ordered in your counts matrix. 
 
 ```{r, warning=FALSE, message=FALSE, echo=FALSE}
 #Read in verse_counts.tsv and sample_metadata.csv and subset to the listed samples
@@ -136,19 +141,41 @@ DESeq2 results and color the points appropriately.
 
 ## 8. Running fgsea
 
+This section will be split into two separate functions that will generated a
+ranked named list of genes and their log2FoldChange values and perform
+`fgsea()`, respectively. Please use the provided id2gene.txt file you containing
+matching ensembl ids and their corresponding gene symbol to add a column to your
+labeled results for the corresponding gene symbol. Then, use this new column and
+generate a named vector containing your gene symbols and their corresponding
+log2FC value ordered by log2FC descending. Make sure to use the gene symbols in
+place of their ensembl id in order to match the identifiers used in the GMT gene
+sets file.
+
+```{r, generate ranked list of log2FC}
+#first load in the id2gene.txt appropriately
+#add a new column in your labeled results that matches IDs to symbols
+#generate a named vector of symbols and log2FC values in descending order
+
+```
+
+```{r, this is the "top" of our ranked list}
+#use head to display the top of the list
+
+```
+
+```{r, this is the "bottom" of our ranked list}
+#use tail to display the bottom of the list
+
+```
+
 Perform a GSEA using a ranked list log2FoldChange values for all genes
 discovered in the DESeq2 results against the C2 Canonical Pathways gene set
-collection. Please use the provided id2gene.txt file you containing matching
-ensembl ids and their corresponding gene symbol to add a column to your labeled
-results for the corresponding gene symbol. fgsea expects a named vector of gene
-level statistics with gene symbols and the ranking statistic ordered
-appropriately. Make sure to use the gene symbols in place of their ensembl id in
-order to match the identifiers used in the GMT gene sets file (symbols).As
-recommended, please set the minSize and maxSize parameters to 15 and 500,
-respectively. Otherwise, run fgsea using default parameters and the `fgsea()`
-function.
+collection. As recommended, please set the minSize and maxSize parameters to 15
+and 500, respectively. Before running fgsea, you will have to load the GMT
+pathways file in an appropriate format for `fgsea`. Otherwise, run fgsea using
+default parameters and the `fgsea()` function.
 
-```{r, run fgsea using log2fc, warning=FALSE, message=FALSE, echo=FALSE}
+```{r, actually run fgsea, warning=FALSE, message=FALSE, echo=FALSE}
 #Run fgsea using a ranked list of descending log2FC against the C2 canonical
 #pathways gene set
 #Set minsize to 15 and maxsize to 500, leave the other parameters as defaults
@@ -159,7 +186,6 @@ function.
 #Display the results of the fgsea in a tibble sorted by padj (ascending)
 
 ```
-
 ## 9. Plotting the top ten positive NES and top ten negative NES pathways
 
 To make a quick visualization of these GSEA results, make a barchart for the

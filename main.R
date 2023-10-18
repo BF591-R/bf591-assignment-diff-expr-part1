@@ -120,19 +120,36 @@ plot_volcano <- function(labeled_results) {
     return(NULL)
 }
 
-#' Function to run fgsea on DESeq2 results
+#' Function to generate a named vector ranked by log2FC descending
 #'
-#' @param labeled_results (tibble): the labeled results from DESeq2
-#' @param gmt (str): the path to the GMT file
-#' @param min_size: the threshold for minimum size of the gene set
-#' @param max_size: the threshold for maximum size of the gene set
+#' @param labeled_results (tibble): Tibble with DESeq2 results and one
+#'   additional column denoting status in volcano plot
+#' @param id2gene_path (str): Path to the file containing the mapping of
+#' ensembl IDs to MGI symbols
 #'
-#' @return tibble containing the results from running fgsea using descending
-#' log2foldchange as a ranking metric
+#' @return Named vector with gene symbols as names, and log2FoldChange as values
+#' ranked in descending order
 #' @export
 #'
-#' @examples fgsea_results <- run_gsea(labeled_results, 'data/m2.cp.v2-23.1.Mm.symbols.gmt', 15, 500)
-run_gsea <- function(labeled_results, gmt, min_size, max_size) {
+#' @examples rnk_list <- make_ranked_log2fc(labeled_results, 'data/id2gene.txt')
+
+make_ranked_log2fc <- function(labeled_results, id2gene_path) {
+    return(NULL)
+}
+
+#' Function to run fgsea with arguments for min and max gene set size
+#'
+#' @param gmt_file_path (str): Path to the gene sets of interest in GMT format
+#' @param rnk_list (named vector): Named vector generated previously with gene 
+#' symbols and log2Fold Change values in descending order
+#' @param min_size (int): Minimum number of genes in gene sets to be allowed
+#' @param max_size (int): Maximum number of genes in gene sets to be allowed
+#'
+#' @return Tibble of results from running fgsea
+#' @export
+#'
+#' @examples fgsea_results <- run_fgsea('data/m2.cp.v2023.1.Mm.symbols.gmt', rnk_list, 15, 500)
+run_fgsea <- function(gmt_file_path, rnk_list, min_size, max_size) {
     return(NULL)
 }
 
