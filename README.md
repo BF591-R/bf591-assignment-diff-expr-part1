@@ -13,8 +13,10 @@ This is a repo for the BF591 assignment differential expression part 1 outline.
 
 > test_main.R # test file, tests the main.R functions
 
-> c2.cp.v7.5.1.symbols.gmt # The C2 canonical pathways gene set collection from MSigDB, genes are represented by HGNC symbols
+> m2.cp.v2023.1.Mm.symbols.gmt # The C2 canonical pathways gene set collection from MSigDB, genes are represented by HGNC symbols
 
 > sample_metadata.csv # A CSV containing various metadata about the samples and experiment
 
 > verse_counts.tsv # A TSV containing the counts for the mRNAseq experiment
+
+> id2gene.txt # A txt file containing the mapping of mouse ensembl ids to their MGI symbols
