@@ -273,14 +273,17 @@ Read the section in the textbook or the fgsea documentation for the appropriate
 formats for the ranked gene list and the gene sets.
 
 ***Hints***
-1. You may read in the gene sets in the proper format using GSEABase or fgsea
+1. You may read in the gene sets in the proper format using GSEABase or fgsea. Your
+   `run_fgsea` function will need to read the GMT file into the proper format prior
+   to running the method. Also make sure to include the specified minSize and maxSize
+   arguments in your `fgsea()` call.
 
-2. You will need to convert the mouse ensembl gene IDs to mouse MGI symbols to
+3. You will need to convert the mouse ensembl gene IDs to mouse MGI symbols to
 match the genes provided in the C2 Canonical Pathways gene sets. Use the provided
 `data/id2gene.txt` in conjunction with your DESeq2 results to generate a new tibble
 containing the matching MGI symbols before constructing your ranked list / vector. 
 
-3. You will inevitably have genes with duplicate names and/or genes with
+4. You will inevitably have genes with duplicate names and/or genes with
 duplicate values for log2FoldChange. Choose a method to remove these values.
 
 
