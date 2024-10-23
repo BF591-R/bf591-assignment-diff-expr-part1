@@ -45,7 +45,8 @@ return_deseq_res <- function(se, design) {
 #' whether gene is either 1. Significant at padj < .10 and has a positive log
 #' fold change, 2. Significant at padj < .10 and has a negative log fold change,
 #' 3. Not significant at padj < .10. Have the values for these labels be UP,
-#' DOWN, NS, respectively. The column should be named `volc_plot_status`.
+#' DOWN, NS, respectively. The column should be named `volc_plot_status`. Ensure
+#' that the column name for your rownames is called "genes". 
 #'
 #' @param deseq2_res (df): results from DESeq2 
 #' @param padj_threshold (float): threshold for considering significance (padj)
