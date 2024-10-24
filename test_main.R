@@ -11,7 +11,7 @@ test_names <- c('ENSMUSG00000102693.2',
 
 test_data <- data.frame(
   log2FoldChange = c(8, -8, 3, -4, 5, -6),
-  pval = rep(c(.001, .01, .1), 2),
+  pvalue = rep(c(.001, .01, .1), 2),
   padj = rep(c(.01, .10, .15), 2))
 
 row.names(test_data) <- test_names
