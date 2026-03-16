@@ -1,5 +1,9 @@
 # Differential Expression Part 1
 
+## IMPORTANT
+Remember you are now responsible for filling in the report.Rmd with the
+functions you develop in the main.R
+
 ## Notes for this assigment
 The tests for this assigment heavily depend on your previous functions working
 correctly. While not ideal for unit testing, this is a convenient way for us to
