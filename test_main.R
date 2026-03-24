@@ -67,12 +67,12 @@ describe("DESeq2 results return the same directionality for most significant gen
   res <- results(dds) %>% as_tibble(rownames='genes')
   
   fc_sign_neg <- res %>% 
-    filter(genes == 'ENSMUSG00000026418.17') %>% 
+    dplyr::filter(genes == 'ENSMUSG00000026418.17') %>% 
     dplyr::select(log2FoldChange) %>% 
     pull()
   
   fc_sign_pos <- res %>% 
-    filter(genes == 'ENSMUSG00000002500.16') %>% 
+    dplyr::filter(genes == 'ENSMUSG00000002500.16') %>% 
     dplyr::select(log2FoldChange) %>% 
     pull()
   
